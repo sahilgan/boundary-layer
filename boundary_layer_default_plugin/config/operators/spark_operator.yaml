@@ -1,0 +1,53 @@
+name: spark_operator
+operator_class: SparkOperator
+operator_class_module: airflow.operators.SparkOperator
+schema_extends: base
+parameters_jsonschema:
+    properties:
+        app_exec:
+            # jar or py
+            type: string
+        app_name:
+            type: string
+        ssh_conn_id:
+            type: string
+            default: k6_spark
+        app_conf:
+            type: object
+            additionalProperties:
+              type: string
+        files:
+            type: array
+            items:
+                type: string
+        py_files:
+            type: array
+            items:
+                type: string
+        jar_files:
+            type: array
+            items:
+                type: string
+        repositories:
+            type: array
+            items:
+              type: string
+        dependencies:
+            type: array
+            items:
+              type: string
+        main_class:
+            type: string
+        deploy_type:
+            type: string
+        app_args:
+            type: object
+        airflow_conns:
+            type: array
+            items:
+                type: string
+    required:
+        - app_exec
+        - app_name
+        - app_conf
+    additionalProperties: true

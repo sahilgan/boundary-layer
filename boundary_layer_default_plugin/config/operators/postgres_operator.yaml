@@ -1,0 +1,22 @@
+name: postgres_operator
+operator_class: PostgresOperator
+operator_class_module: airflow.operators.postgres_operator
+schema_extends: base
+parameters_jsonschema:
+    properties:
+        sql:
+            type: string
+        postgres_conn_id:
+            type: string
+        database:
+            type: string
+        autocommit:
+            type: boolean
+        parameters:
+            type: object
+            additionalProperties:
+                type: string
+    required:
+        - sql
+        - postgres_conn_id
+    additionalProperties: false

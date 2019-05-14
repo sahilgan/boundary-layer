@@ -1,0 +1,35 @@
+name: email_operator
+operator_class: EmailOperator
+operator_class_module: airflow.operators.email_operator
+schema_extends: base
+parameters_jsonschema:
+    properties:
+        to:
+            type: array
+            additionalProperties:
+                type: string
+        subject:
+            type: string
+        html_content:
+            type: string
+        files:
+            type: array
+            additionalProperties:
+                type: string
+        cc:
+            type: array
+            additionalProperties:
+                type: string
+        bcc:
+            type: array
+            additionalProperties:
+                type: string
+        mime_subtype:
+            type: string
+        mime_charset:
+            type: string
+    required:
+      - to
+      - subject
+      - html_content
+    additionalProperties: false

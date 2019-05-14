@@ -1,0 +1,26 @@
+name: python_operator
+operator_class: PythonOperator
+operator_class_module: airflow.operators.python_operator
+schema_extends: base
+parameters_jsonschema:
+    properties:
+        python_callable:
+            type: string
+        op_args:
+            type: array
+            items:
+                type: string
+
+        op_kwargs:
+            type: object
+            additionalProperties:
+                type:
+                    string
+
+        provide_context:
+            type: boolean
+            default: true
+
+    required:
+        - python_callable
+    additionalProperties: true

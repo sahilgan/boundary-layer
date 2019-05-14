@@ -43,6 +43,26 @@ class DateStringToDatetime(PropertyPreprocessor):
         return date
 
 
+class DatetimeStringToDatetime(PropertyPreprocessor):
+    type = "dttm_string_to_datetime"
+
+    def imports(self):
+        return {'modules': ['datetime']}
+
+    def process_arg(self, arg, node, raw_args):
+        date = None
+        try:
+            date = datetime.datetime.strptime(arg, '%Y-%m-%d %H:%M:%S')
+        except ValueError as e:
+            raise Exception(
+                'Error in preprocessor {} for argument `{}`: {}'.format(
+                    self.type,
+                    arg,
+                    str(e)))
+
+        return date
+
+
 class BuildTimedeltaSchema(StrictSchema):
     units = ma.fields.String(required=True)
 

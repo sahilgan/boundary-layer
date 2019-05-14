@@ -74,7 +74,7 @@ parameters_jsonschema:
         - task_id
 
 property_preprocessors:
-    - type: date_string_to_datetime
+    - type: dttm_string_to_datetime
       apply_to_properties:
       - start_date
       - end_date
