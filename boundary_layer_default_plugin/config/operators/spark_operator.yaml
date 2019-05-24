@@ -41,11 +41,13 @@ parameters_jsonschema:
         deploy_type:
             type: string
         app_args:
-            type: object
+            type: string
         airflow_conns:
             type: array
             items:
                 type: string
+        properties:
+            type: string
     required:
         - app_exec
         - app_name
