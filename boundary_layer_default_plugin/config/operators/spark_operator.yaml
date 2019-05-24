@@ -1,6 +1,6 @@
 name: spark_operator
 operator_class: SparkOperator
-operator_class_module: airflow.operators.SparkOperator
+operator_class_module: airflow.operators
 schema_extends: base
 parameters_jsonschema:
     properties:

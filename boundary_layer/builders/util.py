@@ -44,6 +44,9 @@ def add_leading_spaces(text_block, indent_depth):
 
 
 def enquote(x):
+    if len(x.splitlines()) > 1:
+        return '"""%s"""' % x
+
     if "'" not in x:
         return "'%s'" % x
 

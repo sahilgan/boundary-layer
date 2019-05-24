@@ -116,6 +116,7 @@ class DagArgsSchema(StrictSchema):
     user_defined_filters = fields.Dict()
     doc_md = fields.String()
     access_control = fields.Dict()
+    documentation = fields.String()
 
     @validates_schema
     def validate_callbacks(self, data):

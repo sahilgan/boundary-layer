@@ -52,10 +52,19 @@ DEFAULT_TASK_ARGS = {
 {% endfor %}
     }
 
+
 dag = DAG(
 {% for (arg_name, arg_value) in dag_args.items() %}
+{% if arg_name != 'documentation' %}
         {{ arg_name }} = {{ arg_value | format_value }},
+{% endif %}
 {% endfor %}
         default_args = DEFAULT_TASK_ARGS,
     )
+
+{% if 'documentation' in dag_args %}
+dag.doc_md = {{ dag_args.get('documentation') | format_value }}
+{% endif %}
+
+
 
