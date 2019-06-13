@@ -28,6 +28,7 @@ parameters_jsonschema:
             type: string
         mime_charset:
             type: string
+            default: 'utf-8'
     required:
       - to
       - subject
